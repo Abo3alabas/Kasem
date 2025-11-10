@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحامي قاسم العيسى</title>
+
+<!-- خطوط Google -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-dark: #0c0c0c;
+  --bg-gradient: linear-gradient(135deg, #1a1a1a, #000);
+  --gold: #d4af37;
+  --gold-light: #e6c55c;
+  --text-light: #f5f5f5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-light);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px 30px;
+  position: relative;
+}
+
+header::before {
+  content: "⚖️";
+  font-size: 90px;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.07;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.language-switch button {
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  margin-left: 10px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-switch button:hover {
+  background: var(--gold);
+  color: #000;
+  transform: scale(1.05);
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.specialties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-5px);
+}
+
+form {
+  display: grid;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+button.submit-btn {
+  background: var(--gold);
+  border: none;
+  padding: 10px;
+  color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button.submit-btn:hover {
+  background: var(--gold-light);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* متجاوب */
+@media (max-width: 600px) {
+  h1 { font-size: 1.8rem; }
+}
+</style>
+</head>
+
+<body>
+  <header>
+    <nav class="language-switch">
+      <!-- زر تبديل اللغة -->
+      <button onclick="setLanguage('ar')">AR</button>
+      <button onclick="setLanguage('en')">EN</button>
+      <button onclick="setLanguage('nl')">NL</button>
+    </nav>
+    <h1 id="lawyer-name">المحامي قاسم العيسى</h1>
+    <p id="lawyer-tagline">العدالة أساس القانون</p>
+  </header>
+
+  <section id="about">
+    <h2 id="about-title">نبذة تعريفية</h2>
+    <p id="about-text">محامٍ متخصص بخبرة طويلة في تقديم الاستشارات القانونية والدفاع عن القضايا المدنية والجنائية والتجارية باحترافية وشفافية عالية.</p>
+  </section>
+
+  <section id="specialties">
+    <h2 id="specialties-title">التخصصات القانونية</h2>
+    <div class="specialties">
+      <div class="card"><p id="s1">القانون التجاري</p></div>
+      <div class="card"><p id="s2">القانون الجنائي</p></div>
+      <div class="card"><p id="s3">القانون المدني</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 id="contact-title">تواصل معنا</h2>
+    <form>
+      <input type="text" id="name" placeholder="الاسم">
+      <input type="email" id="email" placeholder="البريد الإلكتروني">
+      <textarea id="message" rows="4" placeholder="رسالتك"></textarea>
+      <button class="submit-btn" type="button" id="send">إرسال</button>
+    </form>
+  </section>
+
+  <footer>
+    <p id="footer-text">© جميع الحقوق محفوظة - مكتب المحامي قاسم العيسى 2025</p>
+  </footer>
+
+<script>
+// التبديل بين اللغات
+const content = {
+  ar: {
+    dir: "rtl",
+    name: "المحامي قاسم العيسى",
+    tagline: "العدالة أساس القانون",
+    aboutTitle: "نبذة تعريفية",
+    aboutText: "محامٍ متخصص بخبرة طويلة في تقديم الاستشارات القانونية والدفاع عن القضايا المدنية والجنائية والتجارية باحترافية وشفافية عالية.",
+    specialtiesTitle: "التخصصات القانونية",
+    s1: "القانون التجاري",
+    s2: "القانون الجنائي",
+    s3: "القانون المدني",
+    contactTitle: "تواصل معنا",
+    namePH: "الاسم",
+    emailPH: "البريد الإلكتروني",
+    messagePH: "رسالتك",
+    send: "إرسال",
+    footer: "© جميع الحقوق محفوظة - مكتب المحامي قاسم العيسى 2025"
+  },
+  en: {
+    dir: "ltr",
+    name: "Lawyer Qasem Al-Issa",
+    tagline: "Justice is the foundation of law",
+    aboutTitle: "About",
+    aboutText: "A lawyer with extensive experience in providing legal consultations and defending civil, criminal, and commercial cases professionally and transparently.",
+    specialtiesTitle: "Legal Specialties",
+    s1: "Commercial Law",
+    s2: "Criminal Law",
+    s3: "Civil Law",
+    contactTitle: "Contact Us",
+    namePH: "Name",
+    emailPH: "Email",
+    messagePH: "Your Message",
+    send: "Send",
+    footer: "© All rights reserved - Qasem Al-Issa Law Office 2025"
+  },
+  nl: {
+    dir: "ltr",
+    name: "Advocaat Qasem Al-Issa",
+    tagline: "Gerechtigheid is de basis van de wet",
+    aboutTitle: "Over Mij",
+    aboutText: "Een advocaat met ruime ervaring in juridische consultaties en verdediging van civiele, strafrechtelijke en handelszaken op een professionele en transparante manier.",
+    specialtiesTitle: "Juridische Specialiteiten",
+    s1: "Handelsrecht",
+    s2: "Strafrecht",
+    s3: "Burgerlijk recht",
+    contactTitle: "Neem Contact Op",
+    namePH: "Naam",
+    emailPH: "E-mail",
+    messagePH: "Uw bericht",
+    send: "Versturen",
+    footer: "© Alle rechten voorbehouden - Qasem Al-Issa Advocatenkantoor 2025"
+  }
+};
+
+function setLanguage(lang) {
+  const c = content[lang];
+  document.documentElement.dir = c.dir;
+  document.documentElement.lang = lang;
+  document.getElementById("lawyer-name").innerText = c.name;
+  document.getElementById("lawyer-tagline").innerText = c.tagline;
+  document.getElementById("about-title").innerText = c.aboutTitle;
+  document.getElementById("about-text").innerText = c.aboutText;
+  document.getElementById("specialties-title").innerText = c.specialtiesTitle;
+  document.getElementById("s1").innerText = c.s1;
+  document.getElementById("s2").innerText = c.s2;
+  document.getElementById("s3").innerText = c.s3;
+  document.getElementById("contact-title").innerText = c.contactTitle;
+  document.getElementById("name").placeholder = c.namePH;
+  document.getElementById("email").placeholder = c.emailPH;
+  document.getElementById("message").placeholder = c.messagePH;
+  document.getElementById("send").innerText = c.send;
+  document.getElementById("footer-text").innerText = c.footer;
+}
+
+// تأثير ظهور عند التمرير
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      sec.classList.add("visible");
+    }
+  });
+});
+</script>
+</body>
+</html>
